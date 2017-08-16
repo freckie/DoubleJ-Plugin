@@ -1,0 +1,20 @@
+/*
+Theme Name: Double J Widget Theme
+Description: Double J Widget Theme
+Author: Freckie
+Author URI: http://frec.kr/
+Version: 0.1.0
+*/
+
+
+/*
+ * < Widget CSS >
+*/
+
+
+.widget-user-names {
+	background-color: #CCCCCC;
+	width: 90%;
+	margin: 0 auto;
+	padding: 5px;
+}

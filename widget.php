@@ -1,3 +1,5 @@
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+
 <?php
 
 /*
@@ -6,15 +8,26 @@
  */
 
 
-/* Widget Class */
-class DoubleJWidget extends WP_Widget
+/* Setting CSS */
+function set_widget_css()
 {
-	function __construct()
+	wp_register_style('widget-style', plugin_dir_url(__FILE__).'/widget_style.css');
+	wp_enqueue_style('widget-style');
+}
+
+add_action('wp_enqueue_scripts', 'set_widget_css');
+
+
+/* Widget Class */
+class doublej_widget extends WP_Widget
+{
+	/* Widget Class Constructor */
+	public function __construct()
 	{
 		// Set Widget Title
 		parent::__construct(
 				'doublej_widget', // ID of this Widget
-				'Double-J Widget', // Widget Name on Setting page
+				'(짠&쫄) Double-J Widget', // Widget Name on Setting page
 				array(
 					'description' => 'Jan & Jol Widget. Use with Double-J Plugin.'
 				)
@@ -26,24 +39,42 @@ class DoubleJWidget extends WP_Widget
 	{
 		global $wpdb;
 		$user_list = $wpdb->get_results(
-				"SELECT display_name FROM $wpdb->user_list"
+				"SELECT display_name FROM $wpdb->users"
 			);
-?>
 
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
-
-<aside id='doublej_widget'>
-	<div class='widget-user-names'>
-		<?php
-		for($i=0; $i<=count($user_list); $i++)
-		{
-			echo "<h5>$user_list[$i]</h5>";
-		}
 		?>
-	</div>
-</aside>
 
-<?php
+		<aside id='doublej_widget'>
+			<div class='widget-user-names'>
+				<table class='table table-striped'>
+					<thead>
+						<tr>
+							<th>#</th>
+							<th>이름</th>
+							<th>쫄</th>
+						</tr>
+					</thead>
+
+					<tbody>
+					<?php
+					$idx = 1;
+					foreach($user_list as $user)
+					{
+						$echo_str = "<tr>
+							<th scope='row'><h5>$idx</h5></th>
+							<td><h5>$user->display_name</h5></td>
+							<td><h5>0</h5></td>
+							</tr>";
+						echo $echo_str;
+						$idx++;
+					}
+					?>
+					</tbody>
+				</table>
+			</div>
+		</aside>
+
+		<?php
 		// end of function widget()
 	}
 
@@ -60,11 +91,11 @@ class DoubleJWidget extends WP_Widget
 	}
 }
 
-function myplugin_register_widgets()
+/*function myplugin_register_widgets()
 {
-	registeR_widget('MyNewWidget');
-}
+	register_widget('doublej_widget');
+}*/
 
-add_action('widgets_init', 'myplugin_register_widgets');
+add_action('widgets_init', create_function('', 'register_widget("doublej_widget");'));
 
 ?>
