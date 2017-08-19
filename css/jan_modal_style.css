@@ -1,0 +1,152 @@
+/*
+Theme Name: Double J Jan Modal Style
+Description: Double J Jan Modal Style
+Author: Freckie
+Author URI: http://frec.kr/
+Version: 0.1.0
+*/
+
+
+/*
+ * < Jan Modal CSS >
+*/
+
+/* Modal (background) */
+.jan-modal {
+	display: none;
+	position: fixed;
+	z-index: 10;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	overflow: auto;
+	padding-top: 5%;
+	background-color: rgb(0, 0, 0);
+	background-color: rgba(0, 0, 0, 0.4);
+}
+
+.jan-modal-btn {
+	cursor: pointer;
+	color: white;
+	font-weight: bold;
+	font-size: 18px;
+	border-radius: 0 3px 3px 0;
+	right: 0;
+	margin-bottom: 2px;
+}
+
+.jan-modal-btn:hover,
+.jan-modal-btn:focus {
+	background-color: rgba(0, 0, 0, 0.8);
+}
+
+.modal-content {
+	background-color: #FEFEFE;
+	margin: 15% auto; /* 15% from the top, centered */
+	padding: 20px;
+	border: 1px solid #888;
+	width: 80%;
+	max-width: 800px;
+}
+
+.modal-close {
+	color: #aaa;
+	float: right;
+	font-size: 28px;
+	font-weight: bold;
+}
+
+.modal-close:hover,
+.modal-close:focus {
+	color: black;
+	text-decoration: none;
+	cursor: pointer;
+}
+
+.modal-header {
+	padding: 2px 16px;
+	background-color: #6BC86C;
+	color: white;
+}
+
+.modal-body {
+	padding: 2px 16px;
+}
+
+.modal-footer {
+	padding: 2px 16px;
+	background-color: #6BC86C;
+	color: white;
+}
+
+/* Modal Content */
+.modal-content {
+	position: relative;
+	background-color: #fefefe;
+	margin: auto;
+	padding: 0;
+	border: 1px solid #888;
+	width: 80%;
+	box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+	-webkit-animation-name: animatetop;
+	-webkit-animation-duration: 0.4s;
+	animation-name: animatetop;
+	animation-duration: 0.4s
+}
+
+/* Modal Animation */
+@-webkit-keyframes animatetop {
+	from {top: -300px; opacity: 0} 
+	to {top: 0; opacity: 1}
+}
+
+@keyframes animatetop {
+	from {top: -300px; opacity: 0}
+	to {top: 0; opacity: 1}
+}
+
+/* Accordion */
+button.accor-btn {
+	background-color: #eee;
+	color: #444;
+	cursor: pointer;
+	padding: 18px;
+	width: 90%;
+	text-align: left;
+	border: none;
+	outline: none;
+	transition: 0.4s;
+	margin: 2px;
+}
+
+button.accor-btn:after {
+	content: '\02795'; /* Unicode character for "plus" sign (+) */
+	font-size: 13px;
+	color: #777;
+	float: right;
+	margin-left: 5px;
+}
+
+button.accor-btn.active:after {
+	content: "\02796";
+}
+
+button.accor-btn.active,
+button.accor-btn.hover {
+	background-color: #ddd;
+}
+
+div.accor-panel {
+	padding: 0 18px;
+	background-color: white;
+	max-height: 0;
+	overflow: hidden;
+	transition: max-height 0.2s ease-out;
+}
+
+#accor-msg {
+	width: 80%;
+	border: 1px solid #ddd;
+	margin-bottom: 10px;
+}

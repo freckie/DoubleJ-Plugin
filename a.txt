@@ -1,0 +1,16 @@
+위젯에 > 버튼 하나 만들어서 (&#10095;)
+누르면 side navigation 으로
+짠기능 ui화.
+
+side navigation 창이 열리면
+accordion으로 짠 보낼 사람
+선택하고
+밑에 메세지 입력그룹
+그다음에 전송 버튼.
+
+전송 누르면 modal창 떠서
+전송 완료.
+
+받은 사람은 modal창 떠서 수락/거절
+
+%times;

@@ -1,0 +1,31 @@
+/*
+Theme Name: Double J Plugin Style
+Description: Double J Plugin Style
+Author: Freckie
+Author URI: http://frec.kr/
+Version: 0.1.0
+*/
+
+
+/*
+ * < Plugin CSS >
+*/
+
+/* Available on Only Desktop Mode. */
+@media screen and (min-width: 59.6875em) {
+	.alert-form {
+			margin-top: 2em;
+			margin-left: 23%;
+			margin-right: 23%;
+			margin-bottom: 2em;
+			width: 54%;
+			position: fixed;
+	}
+}
+
+@media screen and (max-width: 59.6875em) {
+	.alert-form {
+		display: none;
+	}
+}
+
